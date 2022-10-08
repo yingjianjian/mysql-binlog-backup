@@ -176,7 +176,7 @@ BINLOG_BASENAME=$(basename `echo ${BINLOG_BASENAME} | tail -1 | awk '{ print $2 
 log "Binlog file basename is $BINLOG_BASENAME"
 
 BINLOG_INDEX_FILE=`mysql --defaults-extra-file=${MYSQL_CONFIG_FILE} -Bse "SHOW GLOBAL VARIABLES LIKE 'log_bin_index'" | tail -1 | awk '{ print $2 }'`
-log "Binlog index file is $BINLOG_BASENAME"
+log "Binlog index file is $BINLOG_INDEX_FILE"
 
 BINLOG_LAST_FILE=`tail -1 "$BINLOG_INDEX_FILE"`
 log "Most recent binlog file is $BINLOG_LAST_FILE"
